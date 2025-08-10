@@ -1,11 +1,9 @@
-version: '3.8'
-
 services:
   boar-bot:
     build: .
     restart: unless-stopped
     ports:
-      - "5005:3000"
+      - "3000:3000"
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
       - GROUP_CHAT_ID=${GROUP_CHAT_ID}
@@ -13,6 +11,7 @@ services:
       - WEBHOOK_SECRET=${WEBHOOK_SECRET}
       - BOT_PASSWORD=${BOT_PASSWORD}
       - PORT=3000
+      - DATABASE_URL=file:./data/dev.db
     volumes:
       - ./data:/app/data
       - ./prisma:/app/prisma
