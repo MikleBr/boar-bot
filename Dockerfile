@@ -8,6 +8,9 @@ RUN bun install
 
 COPY . .
 
+RUN bunx prisma generate
+RUN bunx prisma migrate deploy
+
 EXPOSE 5005
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
