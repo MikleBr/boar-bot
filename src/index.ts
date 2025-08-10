@@ -75,13 +75,13 @@ app.get('/status', async (c) => {
 app.post('/webhook', async (c) => {
   try {
     // Проверяем секретный токен если он установлен
-    if (WEBHOOK_SECRET) {
-      const secretHeader = c.req.header('X-Telegram-Bot-Api-Secret-Token');
-      if (secretHeader !== WEBHOOK_SECRET) {
-        console.warn('❌ Неверный секретный токен webhook');
-        return c.text('Unauthorized', 401);
-      }
-    }
+    // if (WEBHOOK_SECRET) {
+    //   const secretHeader = c.req.header('X-Telegram-Bot-Api-Secret-Token');
+    //   if (secretHeader !== WEBHOOK_SECRET) {
+    //     console.warn('❌ Неверный секретный токен webhook');
+    //     return c.text('Unauthorized', 401);
+    //   }
+    // }
 
     // Получаем webhook callback и передаем ему контекст Hono
     const webhookCallback = botService.getWebhookCallback();
