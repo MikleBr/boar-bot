@@ -7,7 +7,7 @@ const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const GROUP_CHAT_ID = process.env.GROUP_CHAT_ID || '';
 const WEBHOOK_URL = process.env.WEBHOOK_URL || '';
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || '';
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5005;
 
 if (!BOT_TOKEN) {
   console.error('❌ BOT_TOKEN environment variable is required');

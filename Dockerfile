@@ -8,9 +8,9 @@ RUN bun install
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 5005
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:3000/ || exit 1
+  CMD curl -f http://localhost:5005/ || exit 1
 
 CMD ["bun", "run", "start"]
