@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  boar-bot:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - GROUP_CHAT_ID=${GROUP_CHAT_ID}
+      - WEBHOOK_URL=${WEBHOOK_URL}
+      - WEBHOOK_SECRET=${WEBHOOK_SECRET}
+      - BOT_PASSWORD=${BOT_PASSWORD}
+      - PORT=3000
+      - DATABASE_URL=file:./data/dev.db
+    volumes:
+      - ./data:/app/data
+      - ./prisma:/app/prisma
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
