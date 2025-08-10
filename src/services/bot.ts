@@ -426,7 +426,9 @@ ${stats.participationRate < 50 ? '🙈 Слишком часто сливаеш�
   // Устанавливаем веб-хук
   async setWebhook(webhookUrl: string) {
     try {
-      await this.bot.api.setWebhook(webhookUrl);
+      await this.bot.api.setWebhook(webhookUrl, {
+        secret_token: process.env.WEBHOOK_SECRET,
+      });
       console.log(`✅ Webhook установлен: ${webhookUrl}`);
     } catch (error) {
       console.error('❌ Ошибка установки webhook:', error);
