@@ -154,17 +154,17 @@ async function startApplication() {
     botService.start();
 
     // Автоматически устанавливаем webhook если указан WEBHOOK_URL
-    if (WEBHOOK_URL) {
-      try {
-        await botService.setWebhook(WEBHOOK_URL);
-        console.log(`✅ Webhook автоматически установлен: ${WEBHOOK_URL}`);
-      } catch (error) {
-        console.warn('⚠️ Не удалось автоматически установить webhook:', error);
-        console.log('💡 Используйте POST /webhook/set для ручной установки');
-      }
-    } else {
-      console.log('💡 WEBHOOK_URL не указан. Используйте POST /webhook/set для установки webhook');
-    }
+    // if (WEBHOOK_URL) {
+    //   try {
+    //     await botService.setWebhook(WEBHOOK_URL);
+    //     console.log(`✅ Webhook автоматически установлен: ${WEBHOOK_URL}`);
+    //   } catch (error) {
+    //     console.warn('⚠️ Не удалось автоматически установить webhook:', error);
+    //     console.log('💡 Используйте POST /webhook/set для ручной установки');
+    //   }
+    // } else {
+    //   console.log('💡 WEBHOOK_URL не указан. Используйте POST /webhook/set для установки webhook');
+    // }
 
     console.log('✅ Bot готов к работе через webhooks');
     console.log(`🌐 HTTP server running on port ${PORT}`);

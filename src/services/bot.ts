@@ -428,6 +428,7 @@ ${stats.participationRate < 50 ? '🙈 Слишком часто сливаеш�
     try {
       await this.bot.api.setWebhook(webhookUrl, {
         secret_token: process.env.WEBHOOK_SECRET,
+        allowed_updates: ['message', 'callback_query']
       });
       console.log(`✅ Webhook установлен: ${webhookUrl}`);
     } catch (error) {
